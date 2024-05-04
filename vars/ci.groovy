@@ -5,6 +5,9 @@ def call() {
             git branch: 'main', url: "https://github.com/Ramsai33/cart.git"
             sh 'env'
         }
+        stage('build') {
+            common.compile()
+        }
         stage('Unittest') {
             echo 'Hello'
         }
