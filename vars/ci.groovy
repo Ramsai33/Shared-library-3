@@ -3,7 +3,7 @@ def call() {
         stage('Checkout') {
             cleanWs()
             git branch: 'main', url: "https://github.com/Ramsai33/cart.git"
-            sh 'env'
+
         }
         stage('build') {
             common.compile()
