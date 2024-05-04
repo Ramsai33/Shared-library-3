@@ -1,15 +1,9 @@
 def call() {
-    pipeline {
-        agent any
-
-        stages{
-            stage(Hello) {
-                steps{
-                    script{
-                        echo "hello"
-                    }
-                }
-            }
+    node('workstation') {
+        stage('checkout') {
+            cleanws()
+            git branch: 'main', url: "https://github.com/Ramsai33/${component}.git"
+            sh 'env'
         }
     }
 }
