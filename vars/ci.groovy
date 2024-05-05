@@ -15,7 +15,7 @@ def call() {
             echo 'Hello'
         }
         stage('Placing artifacts in centrilise Place') {
-            echo 'Hello'
+            common.artifactspush()
         }
     }
 }
