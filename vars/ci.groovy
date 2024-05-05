@@ -1,4 +1,10 @@
 def call() {
+    if(!env.TAG_NAME) {
+        env.PUSH_CODE = "FALSE"
+    }
+    else {
+        env.PUSH_CODE = "TRUE"
+    }
     node('workstation') {
         stage('Checkout') {
             cleanWs()
@@ -14,8 +20,10 @@ def call() {
         stage('Qualitycheck') {
             echo 'Hello'
         }
+        if(env.PUSH_CODE == "TRUE") {
         stage('Placing artifacts in centrilise Place') {
             common.artifactspush()
+           }
         }
     }
 }
